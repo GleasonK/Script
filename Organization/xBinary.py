@@ -15,7 +15,7 @@ def getBinary(pins):
     for i in range(2**len(pins)):
 		line=""
 		binary = bin(i)[2:]
-		while len(binary)-1 < len(pins)-1:
+		while len(binary) < len(pins):
 				binary = str(0) + binary
 		for j in range(len(pins)):
 			line += pins[j]+"="+binary[j] + "; "
@@ -33,4 +33,3 @@ if __name__=="__main__":
 	xilData = getBinary(pins)
 	for line in xilData:
 		fout.write(line + "\n")
-		print line
