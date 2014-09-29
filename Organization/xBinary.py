@@ -18,7 +18,7 @@ def getBinary(pins):
 		while len(binary)-1 < len(pins)-1:
 				binary = str(0) + binary
 		for j in range(len(pins)):
-			line += pins[j]+"="+binary[j] + " "
+			line += pins[j]+"="+binary[j] + "; "
 		line += "#10;"
 		print line
 		xilData.append(line)
@@ -26,6 +26,7 @@ def getBinary(pins):
 
 if __name__=="__main__":
 	fname = raw_input("Enter project name: ")
+	fname+=".txt"
 	fout = open(fname,"w")
 
 	pins = setVariables()
@@ -33,5 +34,3 @@ if __name__=="__main__":
 	for line in xilData:
 		fout.write(line + "\n")
 		print line
-
-
